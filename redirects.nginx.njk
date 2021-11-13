@@ -1,0 +1,8 @@
+---
+layout: blank
+permalink: /redirects.nginx.conf
+eleventyExcludeFromCollections: true
+---
+{%- for redirect in redirects %}
+rewrite ^/{{ redirect.slug | safe }}$ {{ redirect.destination | safe }} redirect;
+{%- endfor %}

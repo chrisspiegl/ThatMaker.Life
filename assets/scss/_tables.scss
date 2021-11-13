@@ -1,0 +1,324 @@
+/* ----- tables.css ------ */
+
+/*
+### Tables
+*/
+
+:root {
+  --color-table-odd:        var(--color-bg-contrast);
+  --color-table-even:       var(--color-background);
+  --color-table-body:       var(--color-body);
+  --color-table-heading:    var(--color-heading);
+  --color-table-caption:    var(--color-darkred);
+  --color-table-sep:        var(--color-gray-88);
+
+  --font-table-caption:     var(--font-heading);
+  --font-table-heading:     var(--font-heading);
+  --font-table-body:        var(--font-body);
+}
+
+table {
+  width:  100%;
+  border-collapse: collapse;
+  font-family: var(--font-table-body);
+  color: var(--color-table-body);
+  margin: 1.5em 0;
+}
+
+
+thead {
+  font-family: var(--font-table-heading);
+  border-bottom: 1px solid var(--color-table-sep);
+}
+
+tbody {
+  hyphens: manual;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--color-table-odd);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--color-table-even);
+}
+
+td {
+  vertical-align: text-top;
+  padding: 5px;
+}
+
+th {
+  vertical-align: bottom;
+  padding-bottom: 0;
+  color: var(--color-table-heading);
+}
+
+
+table caption {
+  caption-side: top;
+  text-align: right;
+  font-family: var(--font-table-caption);
+  font-style: italic;
+  font-weight: 200;
+  color: var(--color-table-caption);
+  margin-bottom: 0;
+}
+
+
+.table-caption {
+  width: max-content;
+  padding: 0;
+  float: right;
+  background-image: linear-gradient(180deg,transparent 75%,var(--color-red-faded) 0) /* from https://www.ideo.com/ */
+}
+
+
+
+
+/**********************************************************************************
+
+Tables which are responsive.
+
+**/
+
+
+/* Table Instagram */
+.tbl-resp {
+  display: block;
+  margin: 2em auto;
+  width: 100%;
+}
+
+.tbl-resp .flex-table {
+  display: flex;
+  flex-flow: row wrap;
+  /*border-left: solid 1px #5f6874;*/
+  transition: 0.5s;
+}
+.tbl-resp .flex-table:first-of-type {
+  border-top: solid 1px #101318;
+  /*border-left: solid 1px #101318;*/
+}
+.tbl-resp .flex-table:first-of-type .flex-row {
+  background: #5f6874;
+  color: white;
+  border-color: #101318;
+}
+.tbl-resp .flex-table.row:nth-child(odd) .flex-row {
+  background: rgba(95, 104, 116, 0.2);
+}
+// .tbl-resp .flex-table:hover {
+//   background: #F5F5F5;
+//   transition: 500ms;
+// }
+
+.tbl-resp .flex-row {
+  width: calc(100% / 5);
+  text-align: center;
+  padding: 0.5em 0.5em;
+  /*border-right: solid 1px #5f6874;*/
+  border-bottom: solid 1px #5f6874;
+  flex-grow: 1;
+}
+
+.tbl-resp .rowspan {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.tbl-resp .column {
+  display: flex;
+  flex-flow: column wrap;
+  width: calc(100% / 5 * 4);
+  padding: 0;
+}
+.tbl-resp .column .flex-row {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-bottom: solid 1px #5f6874;
+}
+// .tbl-resp .column .flex-row:hover {
+//   background: #F5F5F5;
+//   transition: 500ms;
+// }
+
+.tbl-resp .flex-cell {
+  width: calc(100% / 4);
+  text-align: center;
+  padding: 0.5em 0.5em;
+  /*border-right: solid 1px #5f6874;*/
+}
+
+@media all and (max-width: 767px) {
+  .tbl-resp .flex-row,
+  .tbl-resp .flex-cell {
+    width: calc(100% / 2);
+  }
+  .tbl-resp .flex-row.first,
+  .tbl-resp .flex-table.row:nth-child(odd) .flex-row.first {
+    width: 100%;
+    background: #5f6874;
+    color: white;
+  }
+
+  .tbl-resp .column {
+    width: 100%;
+  }
+}
+@media all and (max-width: 430px) {
+  .tbl-resp .flex-table .flex-row {
+    border-bottom: 0;
+  }
+  .tbl-resp .flex-table .flex-row:last-of-type {
+    border-bottom: solid 1px #5f6874;
+  }
+
+  .tbl-resp .header .flex-row {
+    border-bottom: solid 1px;
+  }
+
+  .tbl-resp .flex-row {
+    width: 100%;
+  }
+  .tbl-resp .flex-row.first {
+    width: 100%;
+    border-bottom: solid 1px #5f6874;
+  }
+
+  .tbl-resp .column {
+    width: 100%;
+  }
+  .tbl-resp .column .flex-row {
+    border-bottom: solid 1px #5f6874;
+  }
+
+  .tbl-resp .flex-cell {
+    width: 100%;
+  }
+}
+
+
+/* Table Resolutions */
+.tbl-resolutions {
+  display: block;
+  margin: 2em auto;
+  width: 100%;
+}
+
+.tbl-resolutions .flex-table {
+  display: flex;
+  flex-flow: row wrap;
+  /*border-left: solid 1px #5f6874;*/
+  transition: 0.5s;
+}
+.tbl-resolutions .flex-table:first-of-type {
+  border-top: solid 1px #101318;
+  /*border-left: solid 1px #101318;*/
+}
+.tbl-resolutions .flex-table:first-of-type .flex-row {
+  background: #5f6874;
+  color: white;
+  border-color: #101318;
+}
+.tbl-resolutions .flex-table.row:nth-child(odd) .flex-row {
+  background: rgba(95, 104, 116, 0.2);
+}
+.tbl-resolutions .flex-table:hover {
+  background: #5f6874;
+  transition: 500ms;
+}
+
+.tbl-resolutions .flex-row {
+  width: calc(100% / 6);
+  text-align: center;
+  padding: 0.5em 0.5em;
+  /*border-right: solid 1px #5f6874;*/
+  border-bottom: solid 1px #5f6874;
+  flex-grow: 1;
+}
+
+.tbl-resolutions .rowspan {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.tbl-resolutions .column {
+  display: flex;
+  flex-flow: column wrap;
+  width: 75%;
+  padding: 0;
+}
+.tbl-resolutions .column .flex-row {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-bottom: solid 1px #5f6874;
+}
+.tbl-resolutions .column .flex-row:hover {
+  background: #F5F5F5;
+  transition: 500ms;
+}
+
+.tbl-resolutions .flex-cell {
+  width: calc(100% / 2);
+  text-align: center;
+  padding: 0.5em 0.5em;
+  /*border-right: solid 1px #5f6874;*/
+}
+
+@media all and (max-width: 767px) {
+  .tbl-resolutions .flex-row {
+    width: calc(100% / 4);
+  }
+  .tbl-resolutions .flex-row.first,
+  .tbl-resolutions .flex-table.row:nth-child(odd) .flex-row.first {
+    width: 100%;
+    background: #5f6874;
+    color: white;
+  }
+
+  .tbl-resolutions .column {
+    width: 100%;
+  }
+}
+@media all and (max-width: 430px) {
+  .tbl-resolutions .flex-table .flex-row {
+    border-bottom: 0;
+  }
+  .tbl-resolutions .flex-table .flex-row:last-of-type {
+    border-bottom: solid 1px #5f6874;
+  }
+
+  .tbl-resolutions .header .flex-row {
+    border-bottom: solid 1px;
+  }
+
+  .tbl-resolutions .flex-row {
+    width: 100%;
+  }
+  .tbl-resolutions .flex-row.first {
+    width: 100%;
+    border-bottom: solid 1px #5f6874;
+  }
+
+  .tbl-resolutions .column {
+    width: 100%;
+  }
+  .tbl-resolutions .column .flex-row {
+    border-bottom: solid 1px #5f6874;
+  }
+
+  .tbl-resolutions .flex-cell {
+    width: 100%;
+  }
+}

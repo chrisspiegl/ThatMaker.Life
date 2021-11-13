@@ -1,0 +1,42 @@
+pre {
+  max-width: 100%;
+  overflow: scroll;
+  padding: 0 1em;
+  display: block;
+  overflow-wrap: normal;
+}
+
+code {
+  word-break: normal;
+}
+
+
+/*  how to display in-line code:
+      apply only to naked <code> blocks
+*/
+code:not([class]) {
+  font-family: var(--font-code);
+  font-size: var(--font-code-size);
+  color: var(--color-code);
+}
+
+/* for naked <code> */
+pre:not([class]) code:not([class]) {
+  background-color: inherit;
+  color: var(--color-darkred)
+}
+
+a[href] > code {
+  text-decoration: underline;
+}
+
+
+code[class*="language-"], pre[class*="language-"] {
+  background: var(--color-code-bg) !important;
+}
+
+pre[class*="language-"] {
+  border-style: none;
+  border-radius: 0.25em;
+  margin: 0 0 1em 0 !important;
+}

@@ -1,0 +1,30 @@
+---
+title: Error - Sometimes it Happens…
+---
+
+{%- raw -%}
+{{$status_code := placeholder "http.error.status_code"}}
+{{$requestUrl := print $.Host $.OriginalReq.URL.Path}}
+{{$message := "Something Really Random 🤷‍♂️"}}
+{{if eq $status_code "404" }}
+  {{$message = "Not found"}}
+{{end}}
+
+<center>
+
+<h1>Whoopsie… {{$status_code}} {{$message}}</h1>
+
+{{if eq $status_code "404" }}
+  <p>Sorry, <em>{{$requestUrl}}</em> was not found.</p>
+{{else}}
+  <p>Sorry, this should not happen! Some error crasehd soemthing. Please let me know about this if it continues happening.</p>
+{{end}}
+
+<p>Maybe try the search?</p>
+
+<p>Here is a represenation of my server…</p>
+
+<img src="https://cataas.com/cat/fail" title="My server goes booooom…" width=100% alt="Gif of a cat failing to do something.">
+
+</center>
+{% endraw %}

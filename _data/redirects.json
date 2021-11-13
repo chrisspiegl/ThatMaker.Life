@@ -1,0 +1,106 @@
+[
+  {
+    "destination": "/tags/",
+    "slug": "tag"
+  },
+  {
+    "destination": "/episodes/",
+    "slug": "episode"
+  },
+  {
+    "destination": "/contributors/",
+    "slug": "contributor"
+  },
+  {
+    "destination": "/posts/",
+    "slug": "post"
+  },
+  {
+    "destination": "https://instagram.com/ChrisSpiegl",
+    "slug": "ig"
+  },
+  {
+    "destination": "https://instagram.com/ChrisSpiegl",
+    "slug": "instagram"
+  },
+  {
+    "destination": "https://www.youtube.com/playlist?list=PLNyHCSSqqwXqBLkbVVB90m-91lBNQF2Dp",
+    "slug": "latest"
+  },
+  {
+    "destination": "https://youtube.com/ChrisSpiegl/live",
+    "slug": "live"
+  },
+  {
+    "destination": "https://subscribeonandroid.com/ThatMaker.Life/feed/",
+    "slug": "android"
+  },
+  {
+    "destination": "_TK_",
+    "slug": "applepodcast"
+  },
+  {
+    "destination": "_TK_",
+    "slug": "podcast/feed"
+  },
+  {
+    "destination": "_TK_",
+    "slug": "overcast"
+  },
+  {
+    "destination": "_TK_",
+    "slug": "googlepodcasts"
+  },
+  {
+    "destination": "_TK_",
+    "slug": "pocketcasts"
+  },
+  {
+    "destination": "_TK_",
+    "slug": "spotify"
+  },
+  {
+    "destination": "_TK_",
+    "slug": "stitcher"
+  },
+  {
+    "destination": "/patron",
+    "slug": "patreon"
+  },
+  {
+    "destination": "/patron",
+    "slug": "support"
+  },
+  {
+    "destination": "https://buymeacoff.ee/chrisspiegl",
+    "slug": "tea"
+  },
+  {
+    "destination": "https://tiktok.com/@ChrisSpiegl",
+    "slug": "tiktok"
+  },
+  {
+    "destination": "https://twitter.com/ChrisSpiegl",
+    "slug": "tw"
+  },
+  {
+    "destination": "https://twitter.com/ChrisSpiegl",
+    "slug": "twitter"
+  },
+  {
+    "destination": "https://t.me/ThatMakerLife",
+    "slug": "tg"
+  },
+  {
+    "destination": "https://t.me/ThatMakerLife",
+    "slug": "telegram"
+  },
+  {
+    "destination": "https://youtube.com/ChrisSpiegl",
+    "slug": "youtube"
+  },
+  {
+    "destination": "https://youtube.com/ChrisSpiegl",
+    "slug": "yt"
+  }
+]

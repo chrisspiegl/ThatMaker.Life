@@ -1,0 +1,16 @@
+extends layout
+block content
+  .container
+
+    != content
+
+    .contributorlist
+      - postList = (postList) ? collections[postList] : collections.posts
+      each post in postList
+        article.post.contributor
+          .image-cover:  a(href=post.url, title="Permalink"): img(srcset=`${meta.imageResizer(640, 0, `${post.url}${post.fileSlug}.cover.jpg`)} 640w, ${meta.imageResizer(1280, 0, `${post.url}${post.fileSlug}.cover.jpg`)} 1280w, ${meta.imageResizer(1920, 0, `${post.url}${post.fileSlug}.cover.jpg`)} 1920w` src=meta.imageResizer(1280, 0, `${post.url}${post.fileSlug}.cover.jpg`), alt="")
+          .text
+            h1: a(href=post.url, title="Permalink")= post.data.title
+            div.content!= post.data.content
+
+    div.linkBack: p: a(href="/episodes/archiv") Archive of all ThatMaker.Life Episodes

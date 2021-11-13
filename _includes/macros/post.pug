@@ -1,0 +1,13 @@
+.post
+  h1
+    a(href=((externalLink) ? externalLink : url), title="Permalink")!= title
+  p
+    time(datetime=global.dateHtml(page.date), pubdate="pubdate")= global.dateReadable(page.date)
+    = ' '
+    a(class="permalink", title="Permalink" href=page.url) ∞
+
+  div.content!= content
+
+  div.content Please share your feedback on #[a(href="/twitter") Twitter], #[a(href="/instagram") Instagram], #[a(href="/telegram") Telegram], or via #[a(href=`mailto:chris@ThatMaker.Life?subject=Show Feedback - ${title}`) Email].
+
+  div.linkBack: p: a(href="/archive") Archive of all Posts

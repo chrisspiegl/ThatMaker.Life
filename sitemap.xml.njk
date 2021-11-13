@@ -1,0 +1,27 @@
+---
+layout: blank
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+metadata:
+  title: Chris Spiegl
+  url: https://ChrisSpiegl.com
+  author:
+    name: Chris Spiegl
+    email: chris@chrisspiegl.com
+  feed:
+    subtitle: I am writing about my experiences as a naval navel-gazer.
+    filename: feed.xml
+    path: feed/feed.xml
+    url: https://ChrisSpiegl.com/feed.xml
+    id: https://ChrisSpiegl.com
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for page in collections.all %}
+  {% set absoluteUrl %}{{ page.url | url | absoluteUrl(metadata.url) }}{% endset %}
+  <url>
+    <loc>{{ absoluteUrl }}</loc>
+    <lastmod>{{ page.date }}</lastmod>
+  </url>
+{%- endfor %}
+</urlset>

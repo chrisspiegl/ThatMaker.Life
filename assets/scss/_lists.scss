@@ -1,0 +1,115 @@
+/**
+ * definition lists
+ **/
+
+dl {
+  font-size: var(--font-size-minus-0);
+}
+
+dt {
+  color: var(--color-heading);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  margin-bottom: 0rem;
+
+}
+
+dd {
+  margin-left: 1em;
+}
+
+/**
+ * This is what happens when you don't
+ * document why you did something because
+ * it's obvious.
+ **/
+
+ul {
+  list-style-type: square;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+/**
+ *  list items should cuddle
+ */
+
+#content li {
+  padding-bottom: 1rem;
+  &:last-child {
+    padding-bottom: 0;
+  }
+  blockquote {
+    margin-top: 1rem;
+  }
+}
+
+main ol,
+main ul {
+  padding-left: 1em;
+}
+
+/**
+ * List of posts
+ **/
+
+.posts-list {
+  list-style-position: inside;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.posts-list-entry {
+
+}
+
+.posts-entry {
+
+}
+
+.posts-entry-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin: 0;
+}
+
+.posts-entry-title a {
+  color: var(--color-gray-30);
+}
+
+.posts-entry-summary {
+  font-family: var(--font-body);
+  font-size: var(--font-size-minus-0);
+  color: var(--color-gray-40);
+}
+
+.posts-entry-date {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-gray-40);
+  font-size: var(--font-size-minus-1);
+  font-style: italic;
+}
+
+.posts-entry-tag {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-minus-1);
+}
+
+.posts-entry-footer {
+  line-height: 1;
+}
+
+.posts-entry-summary,
+.posts-entry-summary p {
+  display: block;
+  margin-bottom: 0;
+}
+
+.tagslist-tags-link {}
+
+.tagslist-tags {
+  color: var(--color-red)
+}

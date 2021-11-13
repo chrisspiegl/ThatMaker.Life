@@ -1,0 +1,14 @@
+.book-list, .movie-list {
+  display: flex;
+  padding-bottom: 2rem;
+
+  .cover-photo {
+    img {
+      max-width: 200px;
+      width: 20vw;
+      border: 1px solid black;
+    }
+    padding-right: 1rem;
+  }
+  .details {}
+}

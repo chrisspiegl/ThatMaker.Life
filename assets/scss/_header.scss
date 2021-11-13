@@ -1,0 +1,41 @@
+body > header {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+
+  > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+    #avatar {
+      // position: absolute;
+      border-radius: 50%;
+      width: 5rem;
+      height: 5rem;
+      margin-right: 1rem;
+    }
+    .text {
+      text-align: left;
+      margin-top: 1.2rem;
+      h1 {
+        // text-align: center;
+        margin-bottom: 0;
+        padding: 0;
+        line-height: 2rem;
+      }
+      a {
+        text-decoration: none;
+        color: var(--color-body);
+        font-weight: normal;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      p {
+        text-align: center;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}

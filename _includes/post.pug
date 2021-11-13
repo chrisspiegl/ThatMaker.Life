@@ -1,0 +1,22 @@
+extends layout
+block content
+  .container
+    article.post
+      header
+        if imageHero
+          .image-hero: img(srcset=`${meta.imageResizer(320, 0, imageHero)} 320w, ${meta.imageResizer(640, 0, imageHero)} 640w, ${meta.imageResizer(1280, 0, imageHero)} 1280w, ${meta.imageResizer(1920, 0, imageHero)} 1920w` src=meta.imageResizer(1280, 0, imageHero), alt="")
+        h1
+          if externalLink
+            a(href=externalLink, title="External" target="_blank")!= title
+          else
+            != title
+        p
+          time(datetime=global.dateHtml(page.date), pubdate="pubdate")= global.dateReadable(page.date)
+          = ' '
+          a(class="permalink", title="Permalink" href=page.url) ∞
+
+      div.content!= content
+
+      include macros/afterPost.pug
+
+    div.linkBack: p: a(href="/archive") Archive of all Posts

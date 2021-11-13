@@ -1,0 +1,25 @@
+extends layout
+block content
+  .container
+    .contributor
+      .image-cover: img(srcset=`${meta.imageResizer(640, 0, `${page.url}${page.fileSlug}.cover.jpg`)} 640w, ${meta.imageResizer(1280, 0, `${page.url}${page.fileSlug}.cover.jpg`)} 1280w, ${meta.imageResizer(1920, 0, `${page.url}${page.fileSlug}.cover.jpg`)} 1920w` src=meta.imageResizer(1280, 0, `${page.url}${page.fileSlug}.cover.jpg`), alt="")
+      div.text
+        h1: a(href=page.url, title="Permalink")= title
+        div.content!= content
+
+    - postList = collections.episodes
+    each post in postList
+      if post.data.contributors.includes(page.fileSlug)
+        article.post.blog
+          header
+            .image-hero: a(href=post.url, title="Permalink"): img(srcset=`${meta.imageResizer(640, 0, `${post.url}${post.fileSlug}.hero.jpg`)} 640w, ${meta.imageResizer(1280, 0, `${post.url}${post.fileSlug}.hero.jpg`)} 1280w, ${meta.imageResizer(1920, 0, `${post.url}${post.fileSlug}.hero.jpg`)} 1920w` src=meta.imageResizer(1280, 0, `${post.url}${post.fileSlug}.hero.jpg`), alt="")
+            h1: a(href=post.url, title="Permalink")= post.data.title
+
+            p
+              time(datetime=global.dateHtml(post.date), pubdate="pubdate")= global.dateReadable(post.date)
+              = ' '
+              a(class="permalink", title="Permalink" href=post.url) ∞
+
+          div.content!= post.data.subtitle
+
+    div.linkBack: p: a(href="/episodes/archiv") Archive of all ThatMaker.Life Episodes

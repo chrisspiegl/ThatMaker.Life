@@ -1,0 +1,36 @@
+doctype
+html(style="height: 100%;")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0")
+    meta(http-equiv="refresh", content=`0; URL='${redirect.destination}'`)
+    title Redirecting to: #{redirect.destination}
+    style.
+      a, a:hover, a:active, a:visited {
+        color: #cc5630;
+        text-decoration: none;
+      }
+  body(style="background-color: #222830; color: #f1f2f4; height: 100%; display: flex; justify-content: space-around; align-items: center; min-height: 24em;")
+    div(style="max-width: 90%; width: 600px; text-align: center;")
+      h1 Redirecting to:
+      h2
+        a(href=redirect.destination, style="overflow-wrap: break-word;")= redirect.destination
+      p If you are not automatically redirected,
+        br
+        | please use #[a(href=redirect.destination) the link directly].
+      p ☺️ Enjoy ☺️
+    //- Matomo Analytics
+    if meta.build.env === 'production'
+      script(type="text/javascript").
+        var _paq = window._paq || [];
+        _paq.push(["setDoNotTrack", true]);
+        _paq.push(["disableCookies"]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="https://matomo.spiegl.co/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', '1']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();

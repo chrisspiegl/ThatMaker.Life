@@ -1,0 +1,68 @@
+---
+layout: blank
+title: Creator
+---
+doctype
+head
+  meta(charset="utf-8")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  link(rel="stylesheet", href="/assets/style.css")
+
+  if renderData && renderData.title
+    title #[= renderData.title ] | #[= meta.siteTitle ]
+  else if title
+    title #[= title ] | #[= meta.siteTitle ]
+  else
+    title #[= meta.siteTitle ]
+
+body
+  header.container(style="text-align: center;")
+    h1 ThatMaker.Life
+    h2 Podcast with, about, and for maker.
+
+  section#content.container
+    p A new podcast is being creted. A podcast from, about, and for makers. Everbody makes something. And I want to uncover and explore how that path unfolds, how it has its ups and downs, and what people go through to make their thing happen.
+
+    p Here you can subscribe to the newsletter and I'll let you know as soon as the first episode is published!
+
+    p Of course, you can always unsubscribe at the end of every email. That's easy enough 🌸. Your email address and name are managed by MailerLite which I also use to send the newsletter emails.
+
+    div.ml-form-embed(data-account="2480927:e7c8n6m3j9" data-form="2825501:o9m4b6")
+
+    p(style="text-align: center;") And if social media is more your thing, I have some links for you…
+
+    p(style="text-align: center;") #[a(href="/instagram") Instagram] | #[a(href="/telegram") Telegram Group] | #[a(href="/twitter") Twitter]
+
+
+  footer.container
+    //- Matomo Analytics
+    if meta.build.env === 'production'
+      script(type='text/javascript').
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+        _paq.push(["setCookieDomain", "*.thatmaker.life"]);
+        _paq.push(["setDomains", ["*.thatmaker.life"]]);
+        _paq.push(["setDoNotTrack", true]);
+        _paq.push(["disableCookies"]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+        var u="https://matomo.spiegl.co/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '4']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+      noscript
+        p
+          img(src='https://matomo.spiegl.co/matomo.php?idsite=4&rec=1' style='border:0;' alt='')
+
+    //- MailerLite JavaScript Universal
+    script(type="text/javascript").
+      (function(m,a,i,l,e,r){ m['MailerLiteObject']=e;function f(){
+      var c={ a:arguments,q:[]};var r=this.push(c);return "number"!=typeof r?r:f.bind(c.q);}
+      f.q=f.q||[];m[e]=m[e]||f.bind(f.q);m[e].q=m[e].q||f.q;r=a.createElement(i);
+      var _=a.getElementsByTagName(i)[0];r.async=1;r.src=l+'?v'+(~~(new Date().getTime()/1000000));
+      _.parentNode.insertBefore(r,_);})(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+      var ml_account = ml('accounts', '2480927', 'e7c8n6m3j9', 'load');

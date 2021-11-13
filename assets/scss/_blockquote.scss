@@ -1,0 +1,51 @@
+blockquote {
+  margin: 0 1.5rem 2rem;
+  border-left: 4px solid var(--color-light);
+  color: var(--color-lightest);
+  padding-left: .75rem;
+  padding-bottom: 0;
+  p:last-child {
+    padding-bottom: 0;
+  }
+}
+
+blockquote p cite::before {
+  content: '\2014\2008'; /* emdash-punctuationspace */
+  white-space: pre;
+}
+
+/**
+ * blockquote p:last-of-type cite,
+ *
+ * use this selector to ignore all but the final
+ * cite in a blockquote.
+ **/
+
+blockquote p cite
+{
+  font-style: italic;
+  font-size: var(--font-size-minus-1);
+  text-align: right;
+  display: inline-block;
+  width: 100%;
+}
+
+.quote-hero {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: 4rem -50vw 6rem;
+  blockquote {
+    text-align: center;
+    width: calc(var(--content-width) * 2);
+    max-width: 90%;
+    margin: auto;
+    padding: 0;
+    border-left: 0;
+    font-size: var(--font-size-plus-1);
+    p cite {
+      text-align: center;
+    }
+  }
+}

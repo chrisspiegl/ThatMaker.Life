@@ -1,0 +1,158 @@
+doctype
+head
+  meta(charset="utf-8")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+  if renderData && renderData.title
+    title #[= renderData.title ] | #[= meta.siteTitle ]
+  else if title
+    title #[= title ] | #[= meta.siteTitle ]
+  else
+    title #[= meta.siteTitle ]
+
+  link(rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/favicon/apple-touch-icon-57x57.png")
+  link(rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/favicon/apple-touch-icon-114x114.png")
+  link(rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/favicon/apple-touch-icon-72x72.png")
+  link(rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-touch-icon-144x144.png")
+  link(rel="apple-touch-icon-precomposed" sizes="60x60" href="/assets/favicon/apple-touch-icon-60x60.png")
+  link(rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/favicon/apple-touch-icon-120x120.png")
+  link(rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/favicon/apple-touch-icon-76x76.png")
+  link(rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/favicon/apple-touch-icon-152x152.png")
+  link(rel="icon" type="image/png" href="/assets/favicon/favicon-196x196.png" sizes="196x196")
+  link(rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96")
+  link(rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png" sizes="32x32")
+  link(rel="icon" type="image/png" href="/assets/favicon/favicon-16x16.png" sizes="16x16")
+  link(rel="icon" type="image/png" href="/assets/favicon/favicon-128.png" sizes="128x128")
+  meta(name="application-name" content="ThatMaker.Life")
+  meta(name="msapplication-TileColor" content="#cc5630")
+  meta(name="msapplication-TileImage" content="/assets/favicon/mstile-144x144.png")
+  meta(name="msapplication-square70x70logo" content="/assets/favicon/mstile-70x70.png")
+  meta(name="msapplication-square150x150logo" content="/assets/favicon/mstile-150x150.png")
+  meta(name="msapplication-wide310x150logo" content="/assets/favicon/mstile-310x150.png")
+  meta(name="msapplication-square310x310logo" content="/assets/favicon/mstile-310x310.png")
+
+  link(rel="stylesheet", href="/assets/style.css")
+  link(rel="alternate", href="/feed.xml", type="application/atom+xml", title=`${meta.siteTitle} Atom Feed`)
+
+body
+  header.container
+    section
+      - const avatarImage = '/assets/images/other/avatar-2015-05-17-at-18-31-56-square-mini.jpg'
+      img#avatar(srcset=`${meta.imageResizer(320, 0, avatarImage)} 640w, ${meta.imageResizer(640, 0, avatarImage)} 1280w, ${meta.imageResizer(1280, 0, avatarImage)} 1920w` src=avatarImage, alt="")
+      div.text
+        h1
+          a(href="/") ThatMaker.Life
+    nav.navMain
+      ul
+        li
+          a(href="/") Home
+        li
+          a(href="/episodes") Episodes
+        li
+          a(href="/contributors") Contributors
+        li
+          a#navsub.podlove-subscribe-button-navsub(href="#") Subscribe
+          script.
+            window.podcastData= {
+              "title": "#{meta.podcast.title}",
+              "subtitle": "#{meta.podcast.subtitle}",
+              "description": "#{meta.podcast.summary}",
+              "cover": "#{meta.podcast.cover}",
+              "feeds": [
+                { "type":"audio", "format":"mp3", "url":"#{meta.podcast.feed}", "directory-url-itunes":"#{meta.podcast.applepodcast}"}
+              ]
+            }
+          script.podlove-subscribe-button(src='https://cdn.podlove.org/subscribe-button/javascripts/app.js' data-language='de' data-size='small' data-json-data='podcastData' data-color='#469cd1' data-format='rectangle' data-style='outline' data-hide='true' data-buttonid='navsub')
+        li
+          a(href="/newsletter") Newsletter
+        li
+          a(href="/patron") Support
+        li
+          a(href="/gear") Gear
+        li
+          a(href="/contact") Contact
+
+  section#content
+    block content
+
+  footer.container
+
+    section#search()
+      form(action="https://duckduckgo.com/" method="get")
+        input(type="hidden" name="ia" value="web")
+        input(type="hidden" name="sites" value="ThatMaker.Life")
+        input.text-center(type="text" name="q" value="" placeholder="Search the ThatMaker.Life" required)
+        input.btn.btn-block(type="submit" value="Suchen")
+
+    nav.navFooter
+      ul
+        // - li: a(href="/uncopyright") Uncopyrighted
+        //- li: a(href="/privacy") Privacy
+        li: a(href="/legal-disclosure") Legal Disclosure
+      ul
+        li Last updated:
+          = ' '
+          a#sha(title=`Last updated ${global.dateReadable(git.commitdate)}` href=`${git.origin.replace('git@github.com:', 'https://github.com/').replace('.git', '')}/blob/${git.curbranch}${page.inputPath.slice(1)}`)
+            = global.dateReadableShort(git.commitdate)
+            = ' '
+            if (git.curbranch != 'HEAD')
+              = git.curbranch
+            = ' '
+            = git.commitsha
+
+  //- Footer Blocks and Javascript
+
+  //- Matomo Analytics
+  if meta.build.env === 'production'
+    script(type='text/javascript').
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.thatmaker.life"]);
+      _paq.push(["setDomains", ["*.thatmaker.life"]]);
+      _paq.push(["setDoNotTrack", true]);
+      _paq.push(["disableCookies"]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+      var u="https://matomo.spiegl.co/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '4']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    noscript
+      p
+        img(src='https://matomo.spiegl.co/matomo.php?idsite=4&rec=1' style='border:0;' alt='')
+
+  //- MailerLite JavaScript Universal
+  //- script(type="text/javascript").
+    (function(m,a,i,l,e,r){ m['MailerLiteObject']=e;function f(){
+    var c={ a:arguments,q:[]};var r=this.push(c);return "number"!=typeof r?r:f.bind(c.q);}
+    f.q=f.q||[];m[e]=m[e]||f.bind(f.q);m[e].q=m[e].q||f.q;r=a.createElement(i);
+    var _=a.getElementsByTagName(i)[0];r.async=1;r.src=l+'?v'+(~~(new Date().getTime()/1000000));
+    _.parentNode.insertBefore(r,_);})(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+    var ml_account = ml('accounts', '2480927', 'e7c8n6m3j9', 'load');
+
+  //- Littlefoot - Footnotes
+  script(src="https://cdn.jsdelivr.net/npm/littlefoot@3.3/dist/littlefoot.min.js")
+  script(type="application/javascript").
+    littlefoot.default({
+      buttonTemplate: `<sup
+                        aria-expanded="false"
+                        aria-label="Footnote <% number %>"
+                        class="footnote-ref">
+                        <a
+                        href="#<% reference %>"
+                        class="footnote-ref"
+                        id="<% reference %>"
+                        data-footnote-identifier="<% reference %>"
+                        data-footnote-style="default"
+                        alt="See Footnote <% number %>"
+                        rel="footnote"
+                        data-footnote-content="<% content %>">
+                            <% number %>
+                    </a></sup>`
+    })
+    Array.prototype.forEach.call(document.querySelectorAll('.footnotes.footnote-print-only, .footnotes .footnote-print-only'), e => e.classList.remove('footnote-print-only'))
+    Array.prototype.forEach.call(document.querySelectorAll('.footnote-backref'), (el) => { el.href = el.href.replace('#', '#lf-') })
